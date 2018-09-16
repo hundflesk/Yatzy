@@ -1,0 +1,9 @@
+c:\users\elias\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.exe.config
+c:\users\elias\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.exe
+c:\users\elias\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.pdb
+c:\users\elias\source\repos\Yatzy\Yatzy\bin\Debug\EliasLibrary.dll
+c:\users\elias\source\repos\Yatzy\Yatzy\bin\Debug\EliasLibrary.pdb
+c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csprojResolveAssemblyReference.cache
+c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csproj.CoreCompileInputs.cache
+c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.exe
+c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.pdb
