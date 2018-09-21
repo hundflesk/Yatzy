@@ -7,3 +7,13 @@ c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csprojResolveAssemblyRef
 c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csproj.CoreCompileInputs.cache
 c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.exe
 c:\users\elias\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.pdb
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.exe.config
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.exe
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\Yatzy.pdb
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\EliasLibrary.dll
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\EliasLibrary.pdb
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\bin\Debug\EliasLibrary.xml
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csprojResolveAssemblyReference.cache
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.csproj.CoreCompileInputs.cache
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.exe
+C:\Users\Elias Persson\source\repos\Yatzy\Yatzy\obj\Debug\Yatzy.pdb

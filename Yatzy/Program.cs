@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using EliasLibrary;
 
@@ -73,24 +74,24 @@ namespace Yatzy
         {
             List<GameTasks> tasks = new List<GameTasks>
             {
-                new GameTasks("Ettor"),
-                new GameTasks("Tvåor"),
-                new GameTasks("Treor"),
-                new GameTasks("Fyror"),
-                new GameTasks("Femmor"),
-                new GameTasks("Sexor"),
+                new GameTasks("Ettor"), //1
+                new GameTasks("Tvåor"), //2
+                new GameTasks("Treor"), //3
+                new GameTasks("Fyror"), //4
+                new GameTasks("Femmor"), //5
+                new GameTasks("Sexor"), //6
 
-                new GameTasks("Bonus", 50),
+                new GameTasks("Bonus", 50), //7
 
-                new GameTasks("Par"),
-                new GameTasks("Två par"),
-                new GameTasks("Tretal"),
-                new GameTasks("Fyrtal"),
-                new GameTasks("Liten stege", 15),
-                new GameTasks("Stor stege", 20),
-                new GameTasks("Kåk"),
-                new GameTasks("Chans"),
-                new GameTasks("Yatzy", 50)
+                new GameTasks("Par"), //8
+                new GameTasks("Två par"), //9
+                new GameTasks("Tretal"), //10
+                new GameTasks("Fyrtal"), //11
+                new GameTasks("Liten stege", 15), //12
+                new GameTasks("Stor stege", 20), //13
+                new GameTasks("Kåk"), //14
+                new GameTasks("Chans"), //15
+                new GameTasks("Yatzy", 50) //16
             };
 
             return tasks;
@@ -99,6 +100,7 @@ namespace Yatzy
         private static void Game(List<User> playerList, List<GameTasks> taskList)
         {
             var dice = new int[5];
+            var playerArray = playerList.ToArray();
             var playersTasks = new Dictionary<User, List<GameTasks>>();
 
             foreach (User player in playerList)
@@ -109,26 +111,130 @@ namespace Yatzy
                 Console.WriteLine($"Runda {round} av 15.");
                 Task.PressEnter("börja rundan");
 
-                foreach (User player in playerList)
+                for (int i = 0; i < playerArray.Length; i++)
                 {
-                    if (player.name.EndsWith("s"))
-                        Console.WriteLine($"Nu är det {player.name} tur att kasta!");
+                    if (playerArray[i].name.EndsWith("s"))
+                        Console.WriteLine($"Nu är det {playerArray[i].name} tur att kasta!");
                     else
-                        Console.WriteLine($"Nu är det {player.name}s tur att kasta!");
+                        Console.WriteLine($"Nu är det {playerArray[i].name}s tur att kasta!");
 
                     for (int försök = 1; försök <= 3; försök++)
                     {
                         Task.PressEnter("slå tärningarna");
 
                         List<int> diceValues = new List<int>();
-                        for (int i = 0; i < dice.Length; i++)
+                        for (int j = 0; j < dice.Length; j++)
                         {
-                            dice[i] = new Random().Next(1, 7);
-                            diceValues.Add(dice[i]);
+                            dice[j] = new Random().Next(1, 7);
+                            diceValues.Add(dice[j]);
 
-                            Console.WriteLine($"Tärning {i + 1} = {dice[i]}");
+                            Console.WriteLine($"Tärning {j + 1} = {dice[j]}");
                         }
                         Console.WriteLine();
+
+                        Program.CheckTasks(diceValues, playersTasks, i);
+                    }
+                }
+            }
+        }
+
+        private static Dictionary<User, List<GameTasks>> CheckTasks(List<int> rolledDice, Dictionary<User, List<GameTasks>> pTasks, int playerPos)
+        {
+            var playersTasks = pTasks.ToList();
+            var taskArray = playersTasks[playerPos].Value.ToArray();
+
+            int antalEttor = 0;
+            int antalTvåor = 0;
+            int antalTreor = 0;
+            int antalFyror = 0;
+            int antalFemmor = 0;
+            int antalSexor = 0;
+
+            foreach (int diceNum in rolledDice)
+            {
+                if (diceNum == 1)
+                    antalEttor += 1;
+
+                else if (diceNum == 2)
+                    antalTvåor += 1;
+
+                else if (diceNum == 3)
+                    antalTreor += 1;
+
+                else if (diceNum == 4)
+                    antalFyror += 1;
+
+                else if (diceNum == 5)
+                    antalFemmor += 1;
+
+                else if (diceNum == 6)
+                    antalSexor += 1;
+            }
+
+            List<int> listOfDiceNums = new List<int>
+            {
+                antalEttor,
+                antalTvåor,
+                antalTreor,
+                antalFyror,
+                antalFemmor,
+                antalSexor
+            };
+
+            for (int i = 0; i < taskArray.Length; i++)
+            {
+                if (taskArray[i].completed == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[tangent] - {taskArray[i].name}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else if (taskArray[i].failed == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"[tangent] - {taskArray[i].name}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    if (i == 0) //Ettor
+                    {
+                        if (antalEttor >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 1) //Tvåor
+                    {
+                        if (antalTvåor >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 2) //Treor
+                    {
+                        if (antalTreor >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 3) //Fyror
+                    {
+                        if (antalFyror >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 4) //Femmor
+                    {
+                        if (antalFemmor >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 5) //Sexor
+                    {
+                        if (antalSexor >= 3)
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 6) //Par
+                    {
+                        if (listOfDiceNums.Contains(2))
+                            taskArray[i].available = true;
+                    }
+                    else if (i == 7) //Två par
+                    {
+
                     }
                 }
             }

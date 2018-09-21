@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EliasLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:EliasLibrary.User">
+            <summary>
+            <para>En klass av användare för spel.</para>
+            </summary>
+        </member>
+        <member name="F:EliasLibrary.User.name">
+            <summary>
+            Namnet på användaren.
+            </summary>
+        </member>
+        <member name="F:EliasLibrary.User.score">
+            <summary>
+            Användarens poäng.
+            </summary>
+        </member>
+        <member name="M:EliasLibrary.User.CreateUser(System.Collections.Generic.List{EliasLibrary.User})">
+            <summary>
+            <para>En funktion för att lägga till användare i en lista.</para>
+            <para></para>
+            </summary>
+            <param name="userList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EliasLibrary.Task">
+            <summary>
+            En klass med funktioner som förklarar hur användaren ska agera i programmet.
+            </summary>
+        </member>
+        <member name="M:EliasLibrary.Task.PressEnter(System.String)">
+            <summary>
+            <para>Tryck 'ENTER' för att ____... (meningen som skrivs)</para>
+            <para>Byt ut "____" mot något/några ord som förklarar vad användaren ska göra.</para>
+            <para>En radavbrytning görs innan meningen skrivs ut. Konsollen rensas i slutet.</para>
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:EliasLibrary.Task.AreYouSure(System.String)">
+            <summary>
+            <para>Är du säker på att du vill ____? (meningen som skrivs)</para>
+            <para>Byt ut "____" mot några ord som förklarar vad användaren ska bekräfta eller neka.</para>
+            <para>Konsollen rensas i slutet.</para>
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
