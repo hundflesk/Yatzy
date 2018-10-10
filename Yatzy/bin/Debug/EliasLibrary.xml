@@ -16,8 +16,15 @@
         </member>
         <member name="F:EliasLibrary.User.score">
             <summary>
-            Användarens poäng.
+            Användarens poäng. Score = 0 by default.
             </summary>
+        </member>
+        <member name="M:EliasLibrary.User.#ctor(System.String)">
+            <summary>
+            <para>En funktion som skapar en instans av klassen "User".</para>
+            <para>Funktionen tar emot användarens namn som en parameter.</para>
+            </summary>
+            <param name="name"></param>
         </member>
         <member name="M:EliasLibrary.User.CreateUser(System.Collections.Generic.List{EliasLibrary.User})">
             <summary>
@@ -44,10 +51,10 @@
             <summary>
             <para>Är du säker på att du vill ____? (meningen som skrivs)</para>
             <para>Byt ut "____" mot några ord som förklarar vad användaren ska bekräfta eller neka.</para>
-            <para>Konsollen rensas i slutet.</para>
+            <para>En radavbrytning görs i början. Konsollen rensas i slutet.</para>
             </summary>
             <param name="msg"></param>
-            <returns></returns>
+            <returns>ConsoleKey.Enter om JA, ConsoleKey.Spacebar om NEJ</returns>
         </member>
     </members>
 </doc>
